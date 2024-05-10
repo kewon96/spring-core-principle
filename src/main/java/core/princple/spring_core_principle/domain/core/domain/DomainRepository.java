@@ -1,6 +1,7 @@
 package core.princple.spring_core_principle.domain.core.domain;
 
 import java.util.List;
+import java.util.Set;
 
 public interface DomainRepository<T extends Domain> {
 
@@ -12,7 +13,7 @@ public interface DomainRepository<T extends Domain> {
     T findByTarget(String unique);
 
     /** 전체조회 */
-    List<T> findAll();
+    Set<T> findAll();
 
     /** 추가 */
     void add(T t);
