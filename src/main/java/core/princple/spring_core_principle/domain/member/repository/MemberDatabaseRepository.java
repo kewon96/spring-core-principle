@@ -2,7 +2,9 @@ package core.princple.spring_core_principle.domain.member.repository;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 public final class MemberDatabaseRepository implements MemberRepository {
 
@@ -12,8 +14,8 @@ public final class MemberDatabaseRepository implements MemberRepository {
     }
 
     @Override
-    public List<Member> findAll() {
-        return List.of();
+    public Set<Member> findAll() {
+        return Collections.emptySet();
     }
 
     @Override

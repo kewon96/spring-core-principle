@@ -3,9 +3,11 @@ package core.princple.spring_core_principle.domain.member.repository;
 import core.princple.spring_core_principle.domain.member.model.Member;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 public final class MemberMemoryRepository implements MemberRepository {
 
@@ -24,8 +26,8 @@ public final class MemberMemoryRepository implements MemberRepository {
     }
 
     @Override
-    public List<Member> findAll() {
-        return List.of();
+    public Set<Member> findAll() {
+        return store.keySet().stream().map(x -> store.get(x)).collect(Collectors.toUnmodifiableSet());
     }
 
     @Override

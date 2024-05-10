@@ -5,6 +5,8 @@ import core.princple.spring_core_principle.domain.member.repository.MemberMemory
 import core.princple.spring_core_principle.domain.member.repository.MemberRepository;
 
 import java.util.List;
+import java.util.Set;
+
 
 public class MemberServiceImpl implements MemberService {
 
@@ -16,13 +18,13 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public List<Member> findAll() {
-        return List.of();
+    public Set<Member> findAll() {
+        return repository.findAll();
     }
 
     @Override
     public void add(Member member) {
-
+        repository.add(member);
     }
 
     @Override
