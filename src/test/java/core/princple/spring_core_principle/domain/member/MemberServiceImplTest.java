@@ -4,6 +4,7 @@ import core.princple.spring_core_principle.domain.member.enums.MemberGrade;
 import core.princple.spring_core_principle.domain.member.model.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -12,15 +13,38 @@ import java.util.concurrent.Executors;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @Slf4j
 class MemberServiceImplTest {
 
     private final MemberServiceImpl memberService = new MemberServiceImpl();
 
     @Test
-    public void add_and_findAll_vi() {
+    public void join() {
+        // Give
+        Member member1 = new Member();
+        Member member2 = new Member("test1@aaaa.bbb", "1234", MemberGrade.BASIC);
+
+        // When
+        memberService.add(member1);
+        memberService.add(member2);
+
+        Member findMember1 = memberService.findByTarget(member1.id().toString());
+        Member findMember2 = memberService.findByTarget(member2.id().toString());
+
+        log.info("{}", System.identityHashCode(member1));
+        log.info("{}", System.identityHashCode(member2));
+
+        log.info(findMember1.toString());
+        log.info(findMember2.toString());
+
+        // Then
+        Assertions.assertEquals(member1, findMember1);
+        Assertions.assertNotEquals(member1, findMember2);
+    }
+
+
+    @Test
+    public void add_and_findAll_virtual() {
         try (ExecutorService executorService = Executors.newVirtualThreadPerTaskExecutor()) {
             IntStream.range(0, 5).forEach(i -> {
 //                log.info("thread {}", i);
