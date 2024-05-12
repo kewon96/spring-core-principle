@@ -9,20 +9,15 @@
 
 ## Branch flow
 작업하는 동안 일감단위로 Branch를 분할
-
-feature : 기능구현
-
-test : 테스트
-
-build : gradle와 관련된 변경점
-
+* feature : 기능구현
+* test : 테스트
+* build : gradle와 관련된 변경점
 
 ## CommitMessage Keyword
-change : 기능 변경
-
-fix : 버그 수정
-
-new : 새로운 기능 추가
-
-remove : 기능 삭제
+commit을 할 때 작업에 대한 키워드를 붙이자
+Ex) fix: ~~~ 기능 변경
+* change : 기능 변경
+* fix : 버그 수정
+* new : 새로운 기능 추가
+* remove : 기능 삭제
 
