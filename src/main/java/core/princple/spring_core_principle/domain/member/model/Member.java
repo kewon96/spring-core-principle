@@ -12,13 +12,13 @@ import java.util.UUID;
  * @param id 회원이 입력하는 ID가 아닌 생성할 때 privet 하게 등록되는 ID
  * @param email 회원 Email -> 일반적인 User Id 대체
  * @param password 비밀번호
- * @param Grade 회원 등급
+ * @param grade 회원 등급
  */
 public record Member(
         UUID id,
         String email,
         String password,
-        MemberGrade Grade
+        MemberGrade grade
 ) implements Domain {
 
     public Member() {
@@ -28,4 +28,5 @@ public record Member(
     public Member(String email, String password, MemberGrade grade) {
         this(UUID.randomUUID(), email, password, grade);
     }
+
 }
