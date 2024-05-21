@@ -5,7 +5,6 @@ import core.princple.spring_core_principle.domain.discount_policy.enums.Discount
 import core.princple.spring_core_principle.domain.discount_policy.model.DiscountPolicy;
 import core.princple.spring_core_principle.domain.discount_policy.repository.DiscountPolicyMemoryRepository;
 import core.princple.spring_core_principle.domain.discount_policy.repository.DiscountPolicyRepository;
-import core.princple.spring_core_principle.domain.member.enums.MemberGrade;
 import core.princple.spring_core_principle.domain.member.model.Member;
 
 import java.util.Set;
@@ -14,25 +13,6 @@ import java.util.stream.Collectors;
 public class DiscountPolicyServiceImpl implements DiscountPolicyService {
 
     private final DiscountPolicyRepository repository = new DiscountPolicyMemoryRepository();
-
-    {
-        init();
-    }
-
-    /**
-     * 할인정책 기본데이터 주입
-     */
-    public void init() {
-        add(
-                DiscountPolicy.builder()
-                        .id(0)
-                        .type(DiscountType.MEMBER_GRADE)
-                        .unit(DiscountUnit.STATIC)
-                        .value(1000)
-                        .memberGrade(MemberGrade.VIP)
-                        .build()
-        );
-    }
 
     @Override
     public DiscountPolicy findByTarget(String unique) {
@@ -89,6 +69,7 @@ public class DiscountPolicyServiceImpl implements DiscountPolicyService {
     }
 
     private Long calcByUnit(Long sum, DiscountPolicy policy) {
+
         if(policy.getUnit().equals(DiscountUnit.STATIC)) {
             return sum - policy.getValue();
         }
