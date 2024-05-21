@@ -25,4 +25,8 @@ public class DiscountPolicy implements Domain {
 
     private MemberGrade memberGrade;
     private Category category;
+
+    public void createId(int id) {
+        this.id = id + 1;
+    }
 }

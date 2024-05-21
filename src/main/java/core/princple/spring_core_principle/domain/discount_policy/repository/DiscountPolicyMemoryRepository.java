@@ -31,7 +31,9 @@ public class DiscountPolicyMemoryRepository implements DiscountPolicyRepository 
     public void add(DiscountPolicy discountPolicy) {
         int size = store.values().size();
 
-        store.put(size + 1, discountPolicy);
+        discountPolicy.createId(size);
+
+        store.put(discountPolicy.getId(), discountPolicy);
     }
 
     @Override
