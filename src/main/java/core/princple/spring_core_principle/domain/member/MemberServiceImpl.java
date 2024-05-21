@@ -17,6 +17,11 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
+    public Member findByEmail(String email) {
+        return repository.findByEmail(email);
+    }
+
+    @Override
     public Set<Member> findAll() {
         return repository.findAll();
     }

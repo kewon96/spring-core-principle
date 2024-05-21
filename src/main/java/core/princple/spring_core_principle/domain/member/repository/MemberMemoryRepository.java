@@ -1,6 +1,7 @@
 package core.princple.spring_core_principle.domain.member.repository;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
+import org.springframework.util.CollectionUtils;
 
 import java.util.Set;
 import java.util.UUID;
@@ -22,6 +23,11 @@ public final class MemberMemoryRepository implements MemberRepository {
     @Override
     public Member findByTarget(String id) {
         return store.get(UUID.fromString(id));
+    }
+
+    @Override
+    public Member findByEmail(String email) {
+        return store.values().stream().filter(x -> x.email().equals(email)).findFirst().orElseThrow(() -> new RuntimeException("회원이 없습니다."));
     }
 
     @Override
