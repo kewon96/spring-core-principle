@@ -1,7 +1,6 @@
 package core.princple.spring_core_principle.domain.member;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
-import core.princple.spring_core_principle.domain.member.repository.MemberMemoryRepository;
 import core.princple.spring_core_principle.domain.member.repository.MemberRepository;
 
 import java.util.Set;
@@ -9,7 +8,11 @@ import java.util.Set;
 
 public class MemberServiceImpl implements MemberService {
 
-    private static MemberRepository repository = new MemberMemoryRepository();
+    private final MemberRepository repository;
+
+    public MemberServiceImpl(MemberRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public Member findByTarget(String unique) {

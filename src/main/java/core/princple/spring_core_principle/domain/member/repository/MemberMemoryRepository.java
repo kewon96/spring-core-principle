@@ -1,7 +1,6 @@
 package core.princple.spring_core_principle.domain.member.repository;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
-import org.springframework.util.CollectionUtils;
 
 import java.util.Set;
 import java.util.UUID;
