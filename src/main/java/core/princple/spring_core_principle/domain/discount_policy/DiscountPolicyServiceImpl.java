@@ -12,7 +12,11 @@ import java.util.stream.Collectors;
 
 public class DiscountPolicyServiceImpl implements DiscountPolicyService {
 
-    private final DiscountPolicyRepository repository = new DiscountPolicyMemoryRepository();
+    private final DiscountPolicyRepository repository;
+
+    public DiscountPolicyServiceImpl(DiscountPolicyRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public DiscountPolicy findByTarget(String unique) {
