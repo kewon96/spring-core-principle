@@ -1,10 +1,12 @@
 package core.princple.spring_core_principle.domain.member;
 
+import core.princple.spring_core_principle.domain.core.config.AppConfig;
 import core.princple.spring_core_principle.domain.member.enums.MemberGrade;
 import core.princple.spring_core_principle.domain.member.model.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -16,7 +18,14 @@ import java.util.stream.IntStream;
 @Slf4j
 class MemberServiceImplTest {
 
-    private final MemberServiceImpl memberService = new MemberServiceImpl();
+    private MemberService memberService;
+
+    @BeforeEach
+    public void set() {
+        AppConfig appConfig = new AppConfig();
+
+        memberService = appConfig.memberService();
+    }
 
     @Test
     public void join() {
