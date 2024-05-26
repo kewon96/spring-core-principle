@@ -1,14 +1,11 @@
 package core.princple.spring_core_principle.domain.order;
 
 import core.princple.spring_core_principle.domain.discount_policy.DiscountPolicyService;
-import core.princple.spring_core_principle.domain.discount_policy.DiscountPolicyServiceImpl;
 import core.princple.spring_core_principle.domain.discount_policy.model.DiscountPolicy;
 import core.princple.spring_core_principle.domain.item.model.Item;
 import core.princple.spring_core_principle.domain.member.MemberService;
-import core.princple.spring_core_principle.domain.member.MemberServiceImpl;
 import core.princple.spring_core_principle.domain.member.model.Member;
 import core.princple.spring_core_principle.domain.order.model.Order;
-import core.princple.spring_core_principle.domain.order.repository.OrderMemoryRepository;
 import core.princple.spring_core_principle.domain.order.repository.OrderRepository;
 
 import java.util.Set;
@@ -16,11 +13,15 @@ import java.util.UUID;
 
 public class OrderServiceImpl implements OrderService {
 
+    private final DiscountPolicyService discountPolicyService;
+    private final MemberService memberService;
+    private final OrderRepository orderRepository;
 
-    private final DiscountPolicyService discountPolicyService = new DiscountPolicyServiceImpl();
-    private final MemberService memberService = new MemberServiceImpl();
-    private final OrderRepository orderRepository = new OrderMemoryRepository();
-
+    public OrderServiceImpl(OrderRepository orderRepository, MemberService memberService, DiscountPolicyService discountPolicyService) {
+        this.discountPolicyService = discountPolicyService;
+        this.orderRepository = orderRepository;
+        this.memberService = memberService;
+    }
 
     @Override
     public Order findByTarget(String unique) {
