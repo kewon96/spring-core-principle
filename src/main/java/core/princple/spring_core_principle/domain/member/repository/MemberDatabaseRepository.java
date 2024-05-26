@@ -8,6 +8,11 @@ import java.util.Set;
 public final class MemberDatabaseRepository implements MemberRepository {
 
     @Override
+    public Member findByEmail(String email) {
+        return null;
+    }
+
+    @Override
     public Member findByTarget(String unique) {
         return null;
     }
