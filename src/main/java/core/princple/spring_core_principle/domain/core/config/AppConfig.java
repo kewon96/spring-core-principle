@@ -13,19 +13,31 @@ import core.princple.spring_core_principle.domain.order.repository.OrderMemoryRe
 public class AppConfig {
 
     public MemberService memberService() {
-        return new MemberServiceImpl(new MemberMemoryRepository());
+        return new MemberServiceImpl(memberMemoryRepository());
     }
 
     public OrderService orderService() {
         return new OrderServiceImpl(
-                new OrderMemoryRepository(),
+                orderRepository(),
                 memberService(),
                 discountPolicyService()
         );
     }
 
     public DiscountPolicyService discountPolicyService() {
-        return new DiscountPolicyServiceImpl(new DiscountPolicyMemoryRepository());
+        return new DiscountPolicyServiceImpl(discountPolicyMemoryRepository());
+    }
+
+    public OrderMemoryRepository orderRepository() {
+        return new OrderMemoryRepository();
+    }
+
+    public DiscountPolicyMemoryRepository discountPolicyMemoryRepository() {
+        return new DiscountPolicyMemoryRepository();
+    }
+
+    public MemberMemoryRepository memberMemoryRepository() {
+        return new MemberMemoryRepository();
     }
 
 }
