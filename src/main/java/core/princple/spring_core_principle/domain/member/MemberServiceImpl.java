@@ -2,17 +2,20 @@ package core.princple.spring_core_principle.domain.member;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
 import core.princple.spring_core_principle.domain.member.repository.MemberRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
-
+@Service
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository repository;
 
-    public MemberServiceImpl(MemberRepository repository) {
-        this.repository = repository;
-    }
+//    public MemberServiceImpl(MemberRepository repository) {
+//        this.repository = repository;
+//    }
 
     @Override
     public Member findByTarget(String unique) {

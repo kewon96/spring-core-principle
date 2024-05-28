@@ -9,13 +9,18 @@ import core.princple.spring_core_principle.domain.member.repository.MemberMemory
 import core.princple.spring_core_principle.domain.order.OrderService;
 import core.princple.spring_core_principle.domain.order.OrderServiceImpl;
 import core.princple.spring_core_principle.domain.order.repository.OrderMemoryRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
+@Configuration
 public class AppConfig {
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(memberMemoryRepository());
     }
 
+    @Bean
     public OrderService orderService() {
         return new OrderServiceImpl(
                 orderRepository(),
@@ -24,18 +29,22 @@ public class AppConfig {
         );
     }
 
+    @Bean
     public DiscountPolicyService discountPolicyService() {
         return new DiscountPolicyServiceImpl(discountPolicyMemoryRepository());
     }
 
+    @Bean
     public OrderMemoryRepository orderRepository() {
         return new OrderMemoryRepository();
     }
 
+    @Bean
     public DiscountPolicyMemoryRepository discountPolicyMemoryRepository() {
         return new DiscountPolicyMemoryRepository();
     }
 
+    @Bean
     public MemberMemoryRepository memberMemoryRepository() {
         return new MemberMemoryRepository();
     }

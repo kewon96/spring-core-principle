@@ -1,6 +1,7 @@
 package core.princple.spring_core_principle.domain.member.repository;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
+import org.springframework.stereotype.Component;
 
 import java.util.Set;
 import java.util.UUID;
@@ -8,6 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.stream.Collectors;
 
+@Component
 public final class MemberMemoryRepository implements MemberRepository {
 
     /**
