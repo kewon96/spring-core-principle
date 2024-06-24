@@ -1,6 +1,7 @@
 package core.princple.spring_core_principle;
 
 import core.princple.spring_core_principle.domain.core.config.AppConfig;
+import core.princple.spring_core_principle.domain.core.config.FooClass;
 import core.princple.spring_core_principle.domain.member.MemberService;
 import core.princple.spring_core_principle.domain.member.MemberServiceImpl;
 import org.junit.jupiter.api.Assertions;
@@ -9,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,11 +29,13 @@ class SpringCorePrincipleApplicationTests {
     @Test
     void 빈_등록된거_확인해보기() {
         // Given
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Object.class);
         AnnotationConfigApplicationContext appConfig = new AnnotationConfigApplicationContext(AppConfig.class);
 
         String[] contextBeanNames = context.getBeanDefinitionNames();
         String[] configBeanNames = appConfig.getBeanDefinitionNames();
+        Map<String, FooClass> beansOfType = appConfig.getBeansOfType(FooClass.class);
+
 
 //        configBeanNames.
 

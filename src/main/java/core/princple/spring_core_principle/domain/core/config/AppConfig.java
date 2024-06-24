@@ -5,7 +5,9 @@ import core.princple.spring_core_principle.domain.discount_policy.DiscountPolicy
 import core.princple.spring_core_principle.domain.discount_policy.repository.DiscountPolicyMemoryRepository;
 import core.princple.spring_core_principle.domain.member.MemberService;
 import core.princple.spring_core_principle.domain.member.MemberServiceImpl;
+import core.princple.spring_core_principle.domain.member.repository.MemberDatabaseRepository;
 import core.princple.spring_core_principle.domain.member.repository.MemberMemoryRepository;
+import core.princple.spring_core_principle.domain.member.repository.MemberRepository;
 import core.princple.spring_core_principle.domain.order.OrderService;
 import core.princple.spring_core_principle.domain.order.OrderServiceImpl;
 import core.princple.spring_core_principle.domain.order.repository.OrderMemoryRepository;
@@ -45,8 +47,28 @@ public class AppConfig {
     }
 
     @Bean
+    public FooClass fooClass() {
+        return new FooClass();
+    }
+
+    @Bean
+    public F2Class f2Class() {
+        return new F2Class();
+    }
+
+    @Bean
+    public Foo3Class foo3Class() {
+        return new Foo3Class();
+    }
+
+    @Bean
     public MemberMemoryRepository memberMemoryRepository() {
         return new MemberMemoryRepository();
     }
+
+//    @Bean("memberMemoryRepository")
+//    public MemberRepository memberDatabaseRepository() {
+//        return new MemberDatabaseRepository();
+//    }
 
 }

@@ -30,8 +30,8 @@ class OrderServiceImplTest {
     private MemberService memberService;
     private DiscountPolicyService discountPolicyService;
 
-    @org.junit.jupiter.api.Order(1)
-    @BeforeEach
+//    @org.junit.jupiter.api.Order(1)
+//    @BeforeEach
     void set() {
         AppConfig appConfig = new AppConfig();
 
@@ -40,12 +40,12 @@ class OrderServiceImplTest {
         discountPolicyService = appConfig.discountPolicyService();
     }
 
-    @org.junit.jupiter.api.Order(2)
-    @BeforeEach
-    void 기본회원_만들기() {
-        Member member = new Member("test@test.io", "1234", MemberGrade.VIP);
-        memberService.add(member);
-    }
+//    @org.junit.jupiter.api.Order(2)
+//    @BeforeEach
+//    void 기본회원_만들기() {
+//        Member member = new Member("test@test.io", "1234", MemberGrade.VIP);
+//        memberService.add(member);
+//    }
 
     @org.junit.jupiter.api.Order(2)
     @BeforeEach

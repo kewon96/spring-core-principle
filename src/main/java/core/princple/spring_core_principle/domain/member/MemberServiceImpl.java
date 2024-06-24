@@ -2,6 +2,7 @@ package core.princple.spring_core_principle.domain.member;
 
 import core.princple.spring_core_principle.domain.member.model.Member;
 import core.princple.spring_core_principle.domain.member.repository.MemberRepository;
+import core.princple.spring_core_principle.domain.order.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ import java.util.Set;
 public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository repository;
+//    private final OrderService orderService;
 
 //    public MemberServiceImpl(MemberRepository repository) {
 //        this.repository = repository;
